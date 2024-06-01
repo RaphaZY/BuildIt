@@ -87,9 +87,9 @@ def update(request, id):
         messages.error(request, e)
         return redirect('index')
 
-def read(request, id):
-    item = Product.objects.get(pk=id)
-    return render(request, "site/read.html", {"item":item})
+def read(request):
+    item = Product.objects.all()
+    return render(request, "site/read.html", {"itens": Product.objects.all()})
 
 def delete(request, id):
     item = Product.objects.get(pk=id)
